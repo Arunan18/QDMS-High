@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-26T17:29:21Z" name="Default suite" finished-at="2023-02-26T17:29:26Z" duration-ms="4550">
+  <suite started-at="2023-02-27T16:29:10Z" name="Default suite" finished-at="2023-02-27T16:29:15Z" duration-ms="4830">
     <groups>
     </groups>
-    <test started-at="2023-02-26T17:29:21Z" name="Default test" finished-at="2023-02-26T17:29:26Z" duration-ms="4550">
-      <class name="com.qdms.high.testcases.MaterialMultiSearch">
-        <test-method is-config="true" signature="main()[pri:0, instance:com.qdms.high.testcases.MaterialMultiSearch@a64e035]" started-at="2023-02-26T17:29:00Z" name="main" finished-at="2023-02-26T17:29:21Z" duration-ms="21784" status="PASS">
+    <test started-at="2023-02-27T16:29:10Z" name="Default test" finished-at="2023-02-27T16:29:15Z" duration-ms="4830">
+      <class name="com.qdms.high.testcases.CustomerMultiSearch">
+        <test-method is-config="true" signature="main()[pri:0, instance:com.qdms.high.testcases.CustomerMultiSearch@a64e035]" started-at="2023-02-27T16:28:33Z" name="main" finished-at="2023-02-27T16:29:10Z" duration-ms="36798" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- main -->
-        <test-method signature="projectMultiSearch()[pri:0, instance:com.qdms.high.testcases.MaterialMultiSearch@a64e035]" started-at="2023-02-26T17:29:21Z" name="projectMultiSearch" finished-at="2023-02-26T17:29:26Z" duration-ms="4500" status="FAIL">
+        <test-method signature="customerMultiSearch()[pri:0, instance:com.qdms.high.testcases.CustomerMultiSearch@a64e035]" started-at="2023-02-27T16:29:10Z" name="customerMultiSearch" finished-at="2023-02-27T16:29:15Z" duration-ms="4760" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//a[@class='sc-bdVaJa ieeiNp'][@href='#/master/plantlevel']"}
@@ -20,8 +20,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
 System info: host: 'ADMIN', ip: '192.168.56.1', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.105, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\Invicta\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:49368}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: b3fcd4c4dec9db396e66944b82137316
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.105, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\Invicta\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:49527}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f12ff8bda96c410d70b2937cd938dffc
 *** Element info: {Using=xpath, value=//a[@class='sc-bdVaJa ieeiNp'][@href='#/master/plantlevel']}]]>
             </message>
             <full-stacktrace>
@@ -31,8 +31,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
 System info: host: 'ADMIN', ip: '192.168.56.1', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.105, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\Invicta\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:49368}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: b3fcd4c4dec9db396e66944b82137316
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.105, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\Invicta\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:49527}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f12ff8bda96c410d70b2937cd938dffc
 *** Element info: {Using=xpath, value=//a[@class='sc-bdVaJa ieeiNp'][@href='#/master/plantlevel']}
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
@@ -51,7 +51,7 @@ at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(Def
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
 at com.qdms.high.testcases.MainNavigationTest.navigateMaster(MainNavigationTest.java:31)
-at com.qdms.high.testcases.MaterialMultiSearch.projectMultiSearch(MaterialMultiSearch.java:31)
+at com.qdms.high.testcases.CustomerMultiSearch.customerMultiSearch(CustomerMultiSearch.java:25)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
@@ -80,12 +80,12 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- projectMultiSearch -->
-        <test-method is-config="true" signature="closeChrome()[pri:0, instance:com.qdms.high.testcases.MaterialMultiSearch@a64e035]" started-at="2023-02-26T17:29:26Z" name="closeChrome" finished-at="2023-02-26T17:29:26Z" duration-ms="3" status="PASS">
+        </test-method> <!-- customerMultiSearch -->
+        <test-method is-config="true" signature="closeChrome()[pri:0, instance:com.qdms.high.testcases.CustomerMultiSearch@a64e035]" started-at="2023-02-27T16:29:15Z" name="closeChrome" finished-at="2023-02-27T16:29:15Z" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeChrome -->
-      </class> <!-- com.qdms.high.testcases.MaterialMultiSearch -->
+      </class> <!-- com.qdms.high.testcases.CustomerMultiSearch -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

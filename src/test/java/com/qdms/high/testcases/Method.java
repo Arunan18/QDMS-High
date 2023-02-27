@@ -17,21 +17,16 @@
 package com.qdms.high.testcases;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import com.aventstack.extentreports.Status;
 import com.qdms.high.base.DriverIntialization;
 import com.qdms.high.pages.PlantSearchPage;
@@ -45,8 +40,7 @@ public class Method extends DriverIntialization {
 	static boolean SearchButtonVisible = true;
 	static boolean SearchButtonEnable = true;
 	static boolean FaxTableData = true;
-	static int BeforeCount = 0;
-	static int AfterCount = 0;
+	static int AceptedValue = 0;
 	static String SearchData = null;
 	static boolean check = false;
 	static int pagiWaitTime = 0;
@@ -55,6 +49,7 @@ public class Method extends DriverIntialization {
 	static boolean buttonClick = false;
 	static int numberOfRow = 0;
 	static boolean iconClick = false;
+	static boolean inputValue = false;
 
 	/*********************************************************************************************************************************************************
 	 * Search Icon Properties - (Visible, Enable)
@@ -218,8 +213,7 @@ public class Method extends DriverIntialization {
 	public static void SearchButtonClick(WebElement SearchBtn, WebElement ResetAllBtn, String colName)
 			throws InterruptedException {
 		PageFactory.initElements(driver, psp);
-
-		if (SearchButtonVisible && SearchButtonEnable) {
+		if (SearchButtonVisible && SearchButtonEnable && inputValue) {
 			SearchBtn.click();
 			buttonClick = true;
 			testCase = extent.createTest(colName + " Search Button Click");
@@ -238,13 +232,184 @@ public class Method extends DriverIntialization {
 		}
 	}
 
-	/*********************************************************************************************************************************************************
+/*	/*********************************************************************************************************************************************************
 	 * Take Count Before Searching
 	 **********************************************************************************************************************************************************/
-	public static void checkBeforeSearchData(String tabName, int excelcolNo, List<WebElement> Column, String ColBefore,
-			String colAfter, String colName) throws InterruptedException, IOException {
+/*
+	//	public static void checkBeforeSearchData(String tabName, int excelcolNo, List<WebElement> Column, String ColBefore,
+//			String colAfter, String colName) throws InterruptedException, IOException {
+//		PageFactory.initElements(driver, psp);
+//		Thread.sleep(2000);
+//		FileInputStream file = new FileInputStream(
+//				System.getProperty("user.dir") + "\\src\\test\\resources\\Excel-sheets\\SampleExcel.xlsx");
+//		XSSFWorkbook workbook = new XSSFWorkbook(file);
+//		XSSFSheet sheet = workbook.getSheet(tabName);
+//		try {
+//			numberOfRow = Column.size();
+//		} catch (NoSuchElementException e) {
+//			testCase = extent.createTest(colName + " Column Locater");
+//			testCase.log(Status.INFO, "Dont Have " + colName + " Column Locater");
+//			testCase.log(Status.FAIL, "Dont Have " + colName + "Column Locater");
+//			numberOfRow = 0;
+//		}
+//		int rowcount = sheet.getLastRowNum();
+//		for (int i = 0; i <= rowcount; i++) {
+//			XSSFRow row = sheet.getRow(i);
+//
+//			check = (boolean) row.getCell(0).getBooleanCellValue();
+//			SearchData = (String) row.getCell(excelcolNo).getStringCellValue();
+//			pagiWaitTime = (int) row.getCell(10).getNumericCellValue();
+//			textWaitTime = (int) row.getCell(11).getNumericCellValue();
+//			boolean Enablity = true;
+//			if (Column.isEmpty()) {
+//				ExpectedValue = 0;
+//			} else {
+//				while (Enablity) {
+//					Thread.sleep(pagiWaitTime);
+//					try {
+//						for (int j = 2; j <= numberOfRow; j++) {
+//							WebElement code = driver.findElement(By.xpath(ColBefore + j + colAfter));
+//							Thread.sleep(textWaitTime);
+//							String CodeName = code.getText();
+//							if (CodeName.contains(SearchData)) {
+//								ExpectedValue = ExpectedValue + 1;
+//							}
+//
+//						}
+//					} catch (NoSuchElementException e) {
+//						System.out.println("Dont Have Text Locater in Column");
+//					}
+//					try {
+//						PlantSearchPage.NextPageBtn.click();
+//						Enablity = PlantSearchPage.NextPageBtn.isEnabled();
+//					} catch (NoSuchElementException e) {
+////						testCase = extent.createTest(colName + " Column Pagination Next Button");
+////						testCase.log(Status.INFO, "Dont have Pagination Next Button Locator");
+////						testCase.log(Status.FAIL, "Dont have Pagination Next Button Locator");
+//						break;
+//					}
+//				}
+//
+//				System.out.println("BeforeFilteringDataCount : " + ExpectedValue);
+//
+//				try {
+//					boolean firstPage = PlantSearchPage.PreviousPageBtn.isEnabled();
+//					while (firstPage) {
+//						PlantSearchPage.PreviousPageBtn.click();
+//						firstPage = PlantSearchPage.PreviousPageBtn.isEnabled();
+//					}
+//				} catch (NoSuchElementException e) {
+////					testCase = extent.createTest(colName + " Pagination Next Button");
+////					testCase.log(Status.INFO, "Dont have Pagination Next Button Locator");
+////					testCase.log(Status.FAIL, "Dont have Pagination Next Button Locator");
+//					break;
+//				}
+//			}
+//			Actions act = new Actions(driver);
+//			act.sendKeys(Keys.PAGE_UP).build().perform();
+//			Thread.sleep(2000);
+//		}
+//	}
+*/
+	
+	/*********************************************************************************************************************************************************
+	 * Take Count After Searching & Check Single Searched data Filtering is Corroct/
+	 * Not
+	 **********************************************************************************************************************************************************/
+	public static void checkAfterSearchData(List<WebElement> Column, String ColBefore, String colAfter,
+			boolean TableData, String colName, int ExpectedValue) throws InterruptedException {
 		PageFactory.initElements(driver, psp);
-		Thread.sleep(2000);
+		if (buttonClick) {
+			boolean Enablity = true;
+			try {
+				numberOfRow = Column.size();
+			} catch (NoSuchElementException e) {
+				testCase = extent.createTest("Column Locater");
+				testCase.log(Status.INFO, "Dont Have Column Locater");
+				testCase.log(Status.FAIL, "Dont Have Column Locater");
+				numberOfRow = 0;
+			}
+			if (Column.isEmpty()) {
+				AceptedValue = 0; 
+			} else {
+				while (Enablity) {
+					Thread.sleep(3000);
+					
+						for (int j = 2; j <= numberOfRow; j++) {
+							try {
+								Thread.sleep(1000);
+							WebElement code = driver.findElement(By.xpath(ColBefore + j + colAfter));
+//							Thread.sleep(2000);
+							String CodeName = code.getText();
+							Thread.sleep(1000);
+							if (CodeName.contains(SearchData)) {
+								AceptedValue = AceptedValue + 1; 
+							}
+							
+							if (!CodeName.contains(SearchData)) {
+								TableData = false;
+							} 
+							if (driver.findElement(By.xpath("//tbody[@class='ant-table-tbody']/tr[" + j + "]/td[2]/span/span")).isDisplayed()) {
+								AceptedValue = AceptedValue + 1; 
+								TableData = true;
+							}else if (driver.findElement(By.xpath("//tbody[@class='ant-table-tbody']/tr[" + j + "]/td[6]/span/span")).isDisplayed()) {
+								AceptedValue = AceptedValue + 1; 
+								TableData = true;
+							} else if (driver.findElement(By.xpath("//tbody[@class='ant-table-tbody']/tr[" + j + "]/td[10]/span/span")).isDisplayed()) {
+								AceptedValue = AceptedValue + 1; 
+								TableData = true;
+							}
+						
+					} catch (NoSuchElementException e) {
+//						testCase = extent.createTest("Dont Have This Row Locater");
+//						testCase.log(Status.INFO, "Dont Have This Row Locater");
+//						testCase.log(Status.FAIL, "Dont Have This Row Locater");
+					}
+					}
+					try {
+						PlantSearchPage.NextPageBtn.click();
+						Enablity = PlantSearchPage.NextPageBtn.isEnabled();
+					} catch (NoSuchElementException e) {
+						testCase = extent.createTest("Dont Have Pagination Next Button, When without data in WebTable");
+						testCase.log(Status.INFO, "Dont have Pagination Next Button Locator");
+						testCase.log(Status.FAIL, "Dont have Pagination Next Button Locator");
+						break;
+					}
+				}
+				boolean checke = true;
+				try {
+					Assert.assertEquals(ExpectedValue, AceptedValue);
+				} catch (AssertionError e) {
+					checke = false;
+				}
+				
+				if (checke && TableData) {
+					testCase = extent.createTest(colName + " Single Search Function");
+					testCase.log(Status.INFO, colName + " Single Search Work Correctly");
+					testCase.log(Status.PASS, colName + " Single Search Work Correctly");
+				} else {
+					pass = false;
+					testCase = extent.createTest(colName + " Single Search Function");
+					testCase.log(Status.INFO, colName + " Single Search Work Wrongly");
+					testCase.log(Status.FAIL, colName + " Single Search Work Wrongly");
+				}
+
+				AceptedValue = 0; 
+			}
+		} else {
+			testCase = extent.createTest(colName + " Single Search Function");
+			testCase.log(Status.INFO, "Unable to click " + colName + " Search Button, So Fail");
+			testCase.log(Status.FAIL, "Unable to click " + colName + " Search Button, So Fail");
+		}
+
+	}
+
+	/*********************************************************************************************************************************************************
+	 * Input Searched Data
+	 **********************************************************************************************************************************************************/
+	public static void inputDataSearch(WebElement textBox, String colName, String tabName, int excelcolNo,
+			List<WebElement> Column) throws IOException, InterruptedException {
+		PageFactory.initElements(driver, psp);
 		FileInputStream file = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\test\\resources\\Excel-sheets\\SampleExcel.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
@@ -265,170 +430,28 @@ public class Method extends DriverIntialization {
 			SearchData = (String) row.getCell(excelcolNo).getStringCellValue();
 			pagiWaitTime = (int) row.getCell(10).getNumericCellValue();
 			textWaitTime = (int) row.getCell(11).getNumericCellValue();
-			boolean Enablity = true;
-			if (Column.isEmpty()) {
-				BeforeCount = 0;
+			if (SearchTextBoxVisible && SearchTextBoxEnable) {
+				if (check) {
+					textBox.sendKeys(SearchData);
+					Thread.sleep(1000);
+					testCase = extent.createTest(colName + " Search Data Input");
+					try {
+						Assert.assertEquals(textBox.getAttribute("value"), SearchData);
+						inputValue=true;
+						testCase.log(Status.INFO, colName + " Input Data");
+						testCase.log(Status.PASS, colName + " Input Data");
+					} catch (AssertionError e) {
+						testCase.log(Status.INFO, colName + " Input Data");
+						testCase.log(Status.PASS, colName + " Input Data");
+					}
+
+				}
+
 			} else {
-				while (Enablity) {
-					Thread.sleep(pagiWaitTime);
-					try {
-						for (int j = 2; j <= numberOfRow; j++) {
-							WebElement code = driver.findElement(By.xpath(ColBefore + j + colAfter));
-							Thread.sleep(textWaitTime);
-							String CodeName = code.getText();
-							if (CodeName.contains(SearchData)) {
-								BeforeCount = BeforeCount + 1;
-							}
-
-						}
-					} catch (NoSuchElementException e) {
-						System.out.println("Dont Have Text Locater in Column");
-					}
-					try {
-						PlantSearchPage.NextPageBtn.click();
-						Enablity = PlantSearchPage.NextPageBtn.isEnabled();
-					} catch (NoSuchElementException e) {
-//						testCase = extent.createTest(colName + " Column Pagination Next Button");
-//						testCase.log(Status.INFO, "Dont have Pagination Next Button Locator");
-//						testCase.log(Status.FAIL, "Dont have Pagination Next Button Locator");
-						break;
-					}
-				}
-
-				System.out.println("BeforeFilteringDataCount : " + BeforeCount);
-
-				try {
-					boolean firstPage = PlantSearchPage.PreviousPageBtn.isEnabled();
-					while (firstPage) {
-						PlantSearchPage.PreviousPageBtn.click();
-						firstPage = PlantSearchPage.PreviousPageBtn.isEnabled();
-					}
-				} catch (NoSuchElementException e) {
-//					testCase = extent.createTest(colName + " Pagination Next Button");
-//					testCase.log(Status.INFO, "Dont have Pagination Next Button Locator");
-//					testCase.log(Status.FAIL, "Dont have Pagination Next Button Locator");
-					break;
-				}
-			}
-			Actions act = new Actions(driver);
-			act.sendKeys(Keys.PAGE_UP).build().perform();
-			Thread.sleep(2000);
-		}
-	}
-
-	/*********************************************************************************************************************************************************
-	 * Take Count After Searching & Check Single Searched data Filtering is Corroct/
-	 * Not
-	 **********************************************************************************************************************************************************/
-	public static void checkAfterSearchData(List<WebElement> Column, String ColBefore, String colAfter,
-			boolean TableData, String colName) throws InterruptedException {
-		PageFactory.initElements(driver, psp);
-		if (buttonClick) {
-			boolean Enablity = true;
-			try {
-				numberOfRow = Column.size();
-			} catch (NoSuchElementException e) {
-				testCase = extent.createTest("Column Locater");
-				testCase.log(Status.INFO, "Dont Have Column Locater");
-				testCase.log(Status.FAIL, "Dont Have Column Locater");
-				numberOfRow = 0;
-			}
-			if (Column.isEmpty()) {
-				AfterCount = 0;
-			} else {
-				while (Enablity) {
-					Thread.sleep(3000);
-					try {
-						for (int j = 2; j <= numberOfRow; j++) {
-							WebElement code = driver.findElement(By.xpath(ColBefore + j + colAfter));
-//				Thread.sleep(1000);
-							String CodeName = code.getText();
-							if (CodeName.contains(SearchData)) {
-								AfterCount = AfterCount + 1;
-							}
-							if (driver
-									.findElement(
-											By.xpath("//tbody[@class='ant-table-tbody']/tr[" + j + "]/td[2]/span/span"))
-									.isDisplayed()) {
-								TableData = true;
-							}
-							if (!CodeName.contains(SearchData)) {
-								TableData = false;
-							}
-						}
-					} catch (NoSuchElementException e) {
-//						testCase = extent.createTest("Dont Have This Row Locater");
-//						testCase.log(Status.INFO, "Dont Have This Row Locater");
-//						testCase.log(Status.FAIL, "Dont Have This Row Locater");
-					}
-					try {
-						PlantSearchPage.NextPageBtn.click();
-						Enablity = PlantSearchPage.NextPageBtn.isEnabled();
-					} catch (NoSuchElementException e) {
-//						testCase = extent.createTest(colName + " Column Pagination Next Button");
-//						testCase.log(Status.INFO, "Dont have Pagination Next Button Locator");
-//						testCase.log(Status.FAIL, "Dont have Pagination Next Button Locator");
-						break;
-					}
-				}
-				System.out.println("AfterFilteringDataCount : " + AfterCount);
-				boolean checke = true;
-				try {
-					Assert.assertEquals(BeforeCount, AfterCount);
-				} catch (AssertionError e) {
-					checke = false;
-				}
-				System.out.println("****************************************");
-				System.out.println(checke + "@@@@@@@@");
-				System.out.println(TableData + "$$$$$$");
-				System.out.println("****************************************");
-				if (checke && TableData) {
-					testCase = extent.createTest(colName + " Single Search Function");
-					testCase.log(Status.INFO, colName + " Single Search Work Correctly");
-					testCase.log(Status.PASS, colName + " Single Search Work Correctly");
-				} else {
-					pass = false;
-					testCase = extent.createTest(colName + " Single Search Function");
-					testCase.log(Status.INFO, colName + " Single Search Work Wrongly");
-					testCase.log(Status.FAIL, colName + " Single Search Work Wrongly");
-				}
-
-				BeforeCount = 0;
-				AfterCount = 0;
-			}
-		} else {
-			testCase = extent.createTest(colName + " Single Search Function");
-			testCase.log(Status.INFO, "Unable to click " + colName + " Search Button, So Fail");
-			testCase.log(Status.FAIL, "Unable to click " + colName + " Search Button, So Fail");
-		}
-
-	}
-
-	/*********************************************************************************************************************************************************
-	 * Input Searched Data
-	 **********************************************************************************************************************************************************/
-	public static void inputDataSearch(WebElement textBox, String colName) throws IOException, InterruptedException {
-		PageFactory.initElements(driver, psp);
-		if (SearchTextBoxVisible && SearchTextBoxEnable) {
-			if (check) {
-				textBox.sendKeys(SearchData);
-				Thread.sleep(1000);
 				testCase = extent.createTest(colName + " Search Data Input");
-				try {
-					Assert.assertEquals(textBox.getAttribute("value"), SearchData);
-					testCase.log(Status.INFO, colName + " Input Data");
-					testCase.log(Status.PASS, colName + " Input Data");
-				} catch (AssertionError e) {
-					testCase.log(Status.INFO, colName + " Input Data");
-					testCase.log(Status.PASS, colName + " Input Data");
-				}
-
+				testCase.log(Status.INFO, colName + " Search TextBox Not Visible / Enable");
+				testCase.log(Status.FAIL, colName + " Search TextBox Not Visible / Enable");
 			}
-
-		} else {
-			testCase = extent.createTest(colName + " Search Data Input");
-			testCase.log(Status.INFO, colName + " Search TextBox Not Visible / Enable");
-			testCase.log(Status.FAIL, colName + " Search TextBox Not Visible / Enable");
 		}
 	}
 
@@ -462,4 +485,4 @@ public class Method extends DriverIntialization {
 		}
 	}
 
-}
+} 

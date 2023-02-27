@@ -36,8 +36,6 @@ public void projectMultiSearch() throws InterruptedException, IOException {
 //		STEP 1 : Material - Material Name Search Button Properties
 		Method.checkSearch(MaterialSearchPage.MaterialSearch,"STEP 1 : Material - Material Name");
 		
-		Method.checkBeforeSearchData("Material",1, MaterialSearchPage.MaterialColumn,MaterialSearchPage.MaterialColumnBefore,MaterialSearchPage.MaterialColumnAfter,"Material - Material Name");
-		
 //		STEP 2 : Material - Material Name Search Icon Click
 		Method.ClickSearch(MaterialSearchPage.MaterialSearch, MaterialSearchPage.SearchTextBox, "STEP 2 : Material - Material Name");
 
@@ -48,13 +46,13 @@ public void projectMultiSearch() throws InterruptedException, IOException {
 		Method.SearchButton(MaterialSearchPage.SearchBtn, "STEP 4 : Material - Material Name");
 		 
 //		STEP 5 : Material - Material Name Search Data Input
-		Method.inputDataSearch(MaterialSearchPage.SearchTextBox, "STEP 5 : Material - Material Name"); 
+		Method.inputDataSearch(MaterialSearchPage.SearchTextBox, "STEP 5 : Material - Material Name", "Material",1, MaterialSearchPage.MaterialColumn); 
 		
 //		STEP 6 : Material - Material Name Search Button Click
 		Method.SearchButtonClick(MaterialSearchPage.SearchBtn, MaterialSearchPage.ResetAll, "STEP 6 : Material - Material Name");
 		
 //		STEP 7 : Material - Material Name Single Search Function
-		Method.checkAfterSearchData(MaterialSearchPage.MaterialColumn, MaterialSearchPage.MaterialColumnBefore, MaterialSearchPage.MaterialColumnAfter,  MaterialTableData, "STEP 7 : Material - Material Name");
+		Method.checkAfterSearchData(MaterialSearchPage.MaterialColumn, MaterialSearchPage.MaterialColumnBefore, MaterialSearchPage.MaterialColumnAfter,  MaterialTableData, "STEP 7 : Material - Material Name",5);
 		
 		Method.Logout();
 	}

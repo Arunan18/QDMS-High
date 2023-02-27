@@ -39,7 +39,7 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 		LoginTest.Login(); 
 
 		MainNavigationTest.navigateMaster();
-
+ 
 		MainNavigationTest.navigatePlant(); 
 
 		SubNavigationTest.navigatePlant();
@@ -47,7 +47,7 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 //		STEP 1 : Plant - Plant Code Search Button Properties
 		Method.checkSearch(PlantSearchPage.PlantCodeSearch,"STEP 1 : Plant - Plant Code");
 		
-		Method.checkBeforeSearchData("Plant",1, PlantSearchPage.PlantCodeColumn,PlantSearchPage.PlantCodeColumnBefore,PlantSearchPage.PlantCodeColumnAfter,"Plant Code");
+//		Method.checkBeforeSearchData("Plant",1, PlantSearchPage.PlantCodeColumn,PlantSearchPage.PlantCodeColumnBefore,PlantSearchPage.PlantCodeColumnAfter,"Plant Code");
 		
 //		STEP 2 : Plant - Plant Code Search Icon Click
 		Method.ClickSearch(PlantSearchPage.PlantCodeSearch, PlantSearchPage.SearchTextBox, "STEP 2 : Plant - Plant Code");
@@ -57,20 +57,20 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 		
 //		STEP 4 : Plant - Plant Code Search Button Properties
 		Method.SearchButton(PlantSearchPage.SearchBtn, "STEP 4 : Plant - Plant Code");
-		 
+		  
 //		STEP 5 : Plant - Plant Code Search Data Input
-		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 5 : Plant - Plant Code"); 
+		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 5 : Plant - Plant Code","Plant",1, PlantSearchPage.PlantCodeColumn); 
 		
 //		STEP 6 : Plant - Plant Code Search Button Click
 		Method.SearchButtonClick(PlantSearchPage.SearchBtn, PlantSearchPage.ResetAll, "STEP 6 : Plant - Plant Code");
 		
 //		STEP 7 : Plant - Plant Code Single Search Function
-		Method.checkAfterSearchData(PlantSearchPage.PlantCodeColumn, PlantSearchPage.PlantCodeColumnBefore, PlantSearchPage.PlantCodeColumnAfter,  PlantCodeTableData, "STEP 7 : Plant - Plant Code");
+		Method.checkAfterSearchData(PlantSearchPage.PlantCodeColumn, PlantSearchPage.PlantCodeColumnBefore, PlantSearchPage.PlantCodeColumnAfter,  PlantCodeTableData, "STEP 7 : Plant - Plant Code",1);
 		
 //		STEP 8 : Plant - Plant Search Button Properties
 		Method.checkSearch(PlantSearchPage.PlantNameSearch,"STEP 8 : Plant - Plant");
 		
-		Method.checkBeforeSearchData("Plant",2, PlantSearchPage.PlantColumn,PlantSearchPage.PlantColumnBefore,PlantSearchPage.PlantColumnAfter, "Plant - Plant");
+//		Method.checkBeforeSearchData("Plant",2, PlantSearchPage.PlantColumn,PlantSearchPage.PlantColumnBefore,PlantSearchPage.PlantColumnAfter, "Plant - Plant");
 		
 //		STEP 9 : Plant - Plant Search Icon Click
 		Method.ClickSearch(PlantSearchPage.PlantNameSearch, PlantSearchPage.SearchTextBox, "STEP 9 : Plant - Plant");
@@ -82,18 +82,18 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 		Method.SearchButton(PlantSearchPage.SearchBtn, "STEP 11 : Plant - Plant");
 		
 //		STEP 12 : Plant - Plant Search Data Input
-		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 12 : Plant - Plant");
+		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 12 : Plant - Plant","Plant",2, PlantSearchPage.PlantColumn);
 		
 //		STEP 13 : Plant - Plant Search Button Click
 		Method.SearchButtonClick(PlantSearchPage.SearchBtn, PlantSearchPage.ResetAll, "STEP 13 : Plant - Plant");
 		
 //		STEP 14 : Plant - Plant Single Search Function
-		Method.checkAfterSearchData(PlantSearchPage.PlantColumn, PlantSearchPage.PlantColumnBefore, PlantSearchPage.PlantColumnAfter, PlantTableData, "STEP 14 : Plant - Plant");
+		Method.checkAfterSearchData(PlantSearchPage.PlantColumn, PlantSearchPage.PlantColumnBefore, PlantSearchPage.PlantColumnAfter, PlantTableData, "STEP 14 : Plant - Plant",1);
 		
 //		STEP 15 : Plant - Sub Business Unit Search Button Properties
 		Method.checkSearch(PlantSearchPage.SbuSearch,"STEP 15 : Plant - Sub Business Unit");
 		
-		Method.checkBeforeSearchData("Plant",3, PlantSearchPage.SbuColumn,PlantSearchPage.SbuColumnBefore,PlantSearchPage.SbuColumnAfter,"Plant - Sub Business Unit");
+//		Method.checkBeforeSearchData("Plant",3, PlantSearchPage.SbuColumn,PlantSearchPage.SbuColumnBefore,PlantSearchPage.SbuColumnAfter,"Plant - Sub Business Unit");
 		
 //		STEP 16 : Plant - Sub Business Unit Search Icon Click
 		Method.ClickSearch(PlantSearchPage.SbuSearch, PlantSearchPage.SearchTextBox, "STEP 16 : Plant - Sub Business Unit");
@@ -105,18 +105,18 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 		Method.SearchButton(PlantSearchPage.SearchBtn, "STEP 18 : Plant - Sub Business Unit");
 		
 //		STEP 19 : Plant - Sub Business Unit Search Data Input
-		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 19 : Plant - Sub Business Unit");
+		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 19 : Plant - Sub Business Unit","Plant",3, PlantSearchPage.SbuColumn);
 		
 //		STEP 20 : Plant - Sub Business Unit Search Button Click
 		Method.SearchButtonClick(PlantSearchPage.SearchBtn, PlantSearchPage.ResetAll, "STEP 20 : Plant - Sub Business Unit");
 		
 //		STEP 21 : Sub Business Unit Single Search Function
-		Method.checkAfterSearchData(PlantSearchPage.SbuColumn, PlantSearchPage.SbuColumnBefore, PlantSearchPage.SbuColumnAfter,  SbuTableData, "STEP 21 : Plant - Sub Business Unit");
+		Method.checkAfterSearchData(PlantSearchPage.SbuColumn, PlantSearchPage.SbuColumnBefore, PlantSearchPage.SbuColumnAfter,  SbuTableData, "STEP 21 : Plant - Sub Business Unit",1);
 		
 //		STEP 22 : Plant - Plant Manager Search Button Properties
 		Method.checkSearch(PlantSearchPage.PlantManagerSearch,"STEP 22 : Plant - Plant Manager");
 		
-		Method.checkBeforeSearchData("Plant",4, PlantSearchPage.managerColumn,PlantSearchPage.managerColumnBefore,PlantSearchPage.managerColumnAfter,"Plant - Plant Manager");
+//		Method.checkBeforeSearchData("Plant",4, PlantSearchPage.managerColumn,PlantSearchPage.managerColumnBefore,PlantSearchPage.managerColumnAfter,"Plant - Plant Manager");
 		
 //		STEP 23 : Plant - Plant Manager Search Icon Click
 		Method.ClickSearch(PlantSearchPage.PlantManagerSearch, PlantSearchPage.SearchTextBox, "STEP 23 : Plant - Plant Manager");
@@ -128,18 +128,18 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 		Method.SearchButton(PlantSearchPage.SearchBtn, "STEP 25 : Plant - Plant Manager");
 		
 //		STEP 26 : Plant - Plant Manager Search Data Input
-		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 26 : Plant - Plant Manager");
+		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 26 : Plant - Plant Manager","Plant",4, PlantSearchPage.managerColumn);
 		
 //		STEP 27 : Plant - Plant Manager Search Button Click
 		Method.SearchButtonClick(PlantSearchPage.SearchBtn, PlantSearchPage.ResetAll, "STEP 27 : Plant - Plant Manager");
 		
 //		STEP 28 : Plant - Plant Manager Single Search Function
-		Method.checkAfterSearchData(PlantSearchPage.managerColumn, PlantSearchPage.managerColumnBefore, PlantSearchPage.managerColumnAfter,  ManagerTableData, "STEP 28 : Plant - Plant Manager");
+		Method.checkAfterSearchData(PlantSearchPage.managerColumn, PlantSearchPage.managerColumnBefore, PlantSearchPage.managerColumnAfter,  ManagerTableData, "STEP 28 : Plant - Plant Manager",1);
 		
 //		STEP 29 : Plant - Address Search Button Properties
 		Method.checkSearch(PlantSearchPage.AddressSearch,"STEP 29 : Plant - Address");
 		
-		Method.checkBeforeSearchData("Plant",5, PlantSearchPage.AddressColumn,PlantSearchPage.addressColumnBefore,PlantSearchPage.addressColumnAfter,"Plant - Address");
+//		Method.checkBeforeSearchData("Plant",5, PlantSearchPage.AddressColumn,PlantSearchPage.addressColumnBefore,PlantSearchPage.addressColumnAfter,"Plant - Address");
 		
 //		STEP 30 : Plant - Address Search Icon Click
 		Method.ClickSearch(PlantSearchPage.AddressSearch, PlantSearchPage.SearchTextBox, "STEP 30 : Plant - Address");
@@ -151,18 +151,18 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 		Method.SearchButton(PlantSearchPage.SearchBtn, "STEP 32 : Plant - Address");
 		
 //		STEP 33 : Plant - Plant Search Data Input
-		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 33 : Plant - Address");
+		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 33 : Plant - Address","Plant",5, PlantSearchPage.AddressColumn);
 		
 //		STEP 34 : Plant - Plant Search Button Click
 		Method.SearchButtonClick(PlantSearchPage.SearchBtn, PlantSearchPage.ResetAll, "STEP 34 : Plant - Address");
 		
 //		STEP 35 : Plant - Plant Single Search Function
-		Method.checkAfterSearchData(PlantSearchPage.AddressColumn, PlantSearchPage.addressColumnBefore, PlantSearchPage.addressColumnAfter,  AddressTableData, "STEP 35 : Plant - Address");
+		Method.checkAfterSearchData(PlantSearchPage.AddressColumn, PlantSearchPage.addressColumnBefore, PlantSearchPage.addressColumnAfter,  AddressTableData, "STEP 35 : Plant - Address",1);
 		
 //		STEP 36 : Plant - Contact No Search Button Properties
 		Method.checkSearch(PlantSearchPage.ContactNoSearch,"STEP 36 : Plant - Contact No");
 		
-		Method.checkBeforeSearchData("Plant",6, PlantSearchPage.MobileColumn,PlantSearchPage.mobileColumnBefore,PlantSearchPage.mobileColumnAfter,"Plant - Contact No");
+//		Method.checkBeforeSearchData("Plant",6, PlantSearchPage.MobileColumn,PlantSearchPage.mobileColumnBefore,PlantSearchPage.mobileColumnAfter,"Plant - Contact No");
 		
 //		STEP 37 : Plant - Contact No Search Icon Click
 		Method.ClickSearch(PlantSearchPage.ContactNoSearch, PlantSearchPage.SearchTextBox, "STEP 37 : Plant - Contact No");
@@ -174,13 +174,13 @@ public void plantMultiSearch() throws InterruptedException, IOException {
 		Method.SearchButton(PlantSearchPage.SearchBtn, "STEP 39 : Plant - Contact No");
 		
 //		STEP 40 : Plant - Contact No Search Data Input
-		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 40 : Plant - Contact No");
+		Method.inputDataSearch(PlantSearchPage.SearchTextBox, "STEP 40 : Plant - Contact No","Plant",6, PlantSearchPage.MobileColumn);
 		
 //		STEP 41 : Plant - Contact No Search Button Click
 		Method.SearchButtonClick(PlantSearchPage.SearchBtn, PlantSearchPage.ResetAll, "STEP 41 : Plant - Contact No");
 		
 //		STEP 42 : Plant - Contact No Single Search Function
-		Method.checkAfterSearchData(PlantSearchPage.MobileColumn, PlantSearchPage.mobileColumnBefore, PlantSearchPage.mobileColumnAfter,  ContactNoTableData, "STEP 42 : Plant - Contact No");
+		Method.checkAfterSearchData(PlantSearchPage.MobileColumn, PlantSearchPage.mobileColumnBefore, PlantSearchPage.mobileColumnAfter,  ContactNoTableData, "STEP 42 : Plant - Contact No",1);
 		
 //		STEP 43 : Plant Multi Search (Check Correct Data Count Filter) ☑ 
 		Method.MultipleSearch("STEP 43 : Plant");

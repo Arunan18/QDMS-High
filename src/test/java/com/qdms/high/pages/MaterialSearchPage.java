@@ -47,13 +47,13 @@ public class MaterialSearchPage extends DriverIntialization{
 	@FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[6]/div/span[2]")
 	public static WebElement StateSearch;
 	
-	@FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[6]/div/span[2]")
+	@FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[8]/div/span[2]")
 	public static WebElement ErpSearch;
 	
-	@FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[6]/div/span[2]")
+	@FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[9]/div/span[2]")
 	public static WebElement SbuSearch;
 	
-	@FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[6]/div/span[2]")
+	@FindBy(xpath = "//thead[@class='ant-table-thead']/tr/th[10]/div/span[2]")
 	public static WebElement SourceSearch;
 	
 	
@@ -73,11 +73,11 @@ public class MaterialSearchPage extends DriverIntialization{
 	public static List<WebElement> PlantColumn;
 	@FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr/td[6]")
 	public static List<WebElement> StateColumn;
-	@FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr/td[7]")
-	public static List<WebElement> ErpColumn;
 	@FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr/td[8]")
-	public static List<WebElement> SbuColumn;
+	public static List<WebElement> ErpColumn;
 	@FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr/td[9]")
+	public static List<WebElement> SbuColumn;
+	@FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr/td[10]")
 	public static List<WebElement> SourceColumn;
 	
 	@FindBy(xpath = "//button[@type='button'][@class='ant-btn ant-btn-danger ant-btn-background-ghost']")
@@ -98,11 +98,11 @@ public class MaterialSearchPage extends DriverIntialization{
 	public static String StateColumnBefore = "//tbody[@class='ant-table-tbody']/tr[";
 	public static String StateColumnAfter="]/td[6]"; 
 	public static String ErpColumnBefore = "//tbody[@class='ant-table-tbody']/tr[";
-	public static String ErpColumnAfter="]/td[7]"; 
+	public static String ErpColumnAfter="]/td[8]"; 
 	public static String SbuColumnBefore = "//tbody[@class='ant-table-tbody']/tr[";
-	public static String SbuColumnAfter="]/td[8]"; 
+	public static String SbuColumnAfter="]/td[9]"; 
 	public static String SourceColumnBefore = "//tbody[@class='ant-table-tbody']/tr[";
-	public static String SourceColumnAfter="]/td[9]"; 
+	public static String SourceColumnAfter="]/td[10]"; 
 	
 	@FindBy(xpath = "//ul[@class='ant-pagination mini ant-table-pagination ant-table-pagination-right']/li/div")
 	public static WebElement CurrentPaginationOpction;

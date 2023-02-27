@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.qdms.high.testcases.PlantMultiSearch">
+        <methods>
+          <include name="main"/>
+          <include name="plantMultiSearch"/>
+          <include name="closeChrome"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.PlantMultiSearch -->
+      <class name="com.qdms.high.testcases.ProjectMultiSearch">
+        <methods>
+          <include name="main"/>
+          <include name="closeChrome"/>
+          <include name="projectMultiSearch"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.ProjectMultiSearch -->
+      <class name="com.qdms.high.testcases.CustomerMultiSearch">
+        <methods>
+          <include name="main"/>
+          <include name="closeChrome"/>
+          <include name="customerMultiSearch"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.CustomerMultiSearch -->
+      <class name="com.qdms.high.testcases.DeliveryMultiSearch">
+        <methods>
+          <include name="main"/>
+          <include name="closeChrome"/>
+          <include name="deliveryMultiearch"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.DeliveryMultiSearch -->
+      <class name="com.qdms.high.testcases.EmployeeMultiSearch">
+        <methods>
+          <include name="employeeMultiearch"/>
+          <include name="main"/>
+          <include name="closeChrome"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.EmployeeMultiSearch -->
+      <class name="com.qdms.high.testcases.MaterialSingleSearch">
+        <methods>
+          <include name="main"/>
+          <include name="closeChrome"/>
+          <include name="projectMultiSearch"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.MaterialSingleSearch -->
+      <class name="com.qdms.high.testcases.SupplierMultiSearch">
+        <methods>
+          <include name="main"/>
+          <include name="closeChrome"/>
+          <include name="supplierMultiSearch"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.SupplierMultiSearch -->
+      <class name="com.qdms.high.testcases.MaterialMultiSearch">
+        <methods>
+          <include name="main"/>
+          <include name="projectMultiSearch"/>
+          <include name="closeChrome"/>
+        </methods>
+      </class> <!-- com.qdms.high.testcases.MaterialMultiSearch -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
